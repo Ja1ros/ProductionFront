@@ -66,6 +66,7 @@ export class Producto2Component implements OnInit {
         {
           title: "Nombre",
           data: "Nombre",
+          className: "text-center"
         },
         {
           title: "Imagen",
@@ -73,6 +74,7 @@ export class Producto2Component implements OnInit {
           render: function (data) {
             return `<img src="${data}" width="120" height="120" class="rounded mx-auto d-block" alt="No se puede mostrar la imágen">`;
           },
+          className: "text-center"
         },
         {
           title: "Precio",

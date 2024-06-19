@@ -27,6 +27,7 @@ export class EditarProductoComponent implements OnInit {
   codigoBarras: string = "";
   codigoBarrasImageUrl: string = "";
   producto: Root = { };
+  total: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -79,15 +80,19 @@ export class EditarProductoComponent implements OnInit {
       codigo = prefix + codigo;
     }
 
-     const peso = this.productoForm.get("peso")?.value;
-     const precio = this.productoForm.get("precio")?.value;
-    // const precioTotal = peso * precio;
-    // console.log(peso)
-    // console.log(precio)
-    // console.log("precioTotal: "+precioTotal)
-    // this.productoForm.patchValue({
-    //   precioTotal: precioTotal
-    // });
+    const peso = this.productoForm.get("peso")?.value;
+    const precio = this.productoForm.get("precio")?.value;
+    let total = this.producto.Precio * peso;
+
+    // Redondear al segundo decimal
+    total = Number(total.toFixed(2));
+    // Verificar si el tercer decimal es mayor a 5
+    const tercerDecimal = total * 1000 % 10;
+    if (tercerDecimal > 5) {
+      // Redondear al segundo decimal también
+      total = Number((total + 0.01).toFixed(2));
+    }
+    this.total = total;
 
     this.cdr.detectChanges();
     this.codigoBarras = this.codigoBarrasService.calcularCodigoBarras(

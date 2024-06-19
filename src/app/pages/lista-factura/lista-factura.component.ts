@@ -66,6 +66,7 @@ export class ListaFacturaComponent implements OnInit, AfterViewInit {
         {
           title: "Nombre",
           data: "Nombre",
+          className: "text-center"
         },
         {
           title: "Imagen",
@@ -73,6 +74,7 @@ export class ListaFacturaComponent implements OnInit, AfterViewInit {
           render: function (data) {
             return `<img src="${data}" width="150" height="150" class="rounded mx-auto d-block" alt="No se puede mostrar la imágen">`;
           },
+          className: "text-center"
         },
         // {
         //   title: "Precio",

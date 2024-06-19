@@ -56,10 +56,12 @@ export class UsuarioComponent implements OnInit {
         {
           title: "Cédula",
           data: "Cedula",
+          className: "text-center"
         },
         {
           title: "Nombres",
           data: "Nombres",
+          className: "text-center"
         },
 
         {
